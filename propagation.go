@@ -4,17 +4,18 @@ import (
 	"context"
 	"net/http"
 
-	"brewing-sass/gopkg/logger/propagation/extract"
-	"brewing-sass/gopkg/logger/propagation/inject"
+	// "propagation/extract"
+	// "propagation/inject"
+	"logger/propagation"
 	"github.com/gin-gonic/gin"
 )
 
 // HTTPInject inject spanContext
 func HttpInject(ctx context.Context, request *http.Request) error {
-	return inject.HttpInject(ctx, request)
+	return propagation.inject.HttpInject(ctx, request)
 }
 
 // GinMiddleware extract spanContext
 func GinMiddleware(service string) gin.HandlerFunc {
-	return extract.GinMiddleware(service)
+	return propagation.extract.GinMiddleware(service)
 }

@@ -1,6 +1,8 @@
 module github.com/Liwenqi520/logger
 
-go 1.18
+go 1.22.0
+
+toolchain go1.22.6
 
 require (
 	github.com/gin-gonic/gin v1.10.0
